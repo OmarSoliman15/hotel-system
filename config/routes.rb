@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :room_types
   Rails.application.routes.draw do
     devise_for :users, path: '', path_names: {
-      sign_in: 'login',
+      sign_in: 'users/sign_in',
       sign_out: 'logout',
       registration: 'signup'
     },

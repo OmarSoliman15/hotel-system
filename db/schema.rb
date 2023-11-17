@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_16_194900) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_17_105555) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "room_types", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "max_adult"
+    t.integer "max_kids", default: 0
+    t.decimal "price_per_night", precision: 7, scale: 2
+    t.integer "available_rooms"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "creator_id", null: false
+    t.index ["creator_id"], name: "index_room_types_on_creator_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -30,4 +43,5 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_16_194900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "room_types", "users", column: "creator_id"
 end

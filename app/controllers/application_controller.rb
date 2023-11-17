@@ -8,4 +8,8 @@ class ApplicationController < ActionController::API
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name email])
   end
+
+  def error_response(errors, status = :unprocessable_entity)
+    render json: { errors: errors }, status: status
+  end
 end
