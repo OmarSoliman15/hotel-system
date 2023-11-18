@@ -5,11 +5,8 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    if current_user.admin?
-      @reservations = Reservation.all
-    else
-      @reservations = current_user.reservations
-    end
+    @reservations = ReservationListBuilder.new(params, current_user).ranged_list
+
     render json: @reservations
   end
 
