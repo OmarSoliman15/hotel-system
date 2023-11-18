@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  before_action :set_paper_trail_whodunnit
+
   respond_to :json
   include ActionController::MimeResponds
   before_action :configure_permitted_parameters, if: :devise_controller?

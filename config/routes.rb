@@ -1,6 +1,10 @@
-Rails.application.routes.draw do
-  resources :room_types
   Rails.application.routes.draw do
+    resources :reservations, only: %i[ index show create ] do
+      put :cancel, on: :member
+
+    end
+    resources :room_types
+
     devise_for :users, path: '', path_names: {
       sign_in: 'users/sign_in',
       sign_out: 'logout',
@@ -11,12 +15,3 @@ Rails.application.routes.draw do
                  registrations: 'users/registrations'
                }
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-  # root "posts#index"
-end

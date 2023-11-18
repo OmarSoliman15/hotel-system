@@ -149,6 +149,9 @@ GEM
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
+    paper_trail (15.1.0)
+      activerecord (>= 6.1)
+      request_store (~> 1.4)
     pg (1.5.4)
     psych (5.1.1.1)
       stringio
@@ -199,6 +202,8 @@ GEM
       psych (>= 4.0.0)
     reline (0.4.0)
       io-console (~> 0.5)
+    request_store (1.5.1)
+      rack (>= 1.4)
     responders (3.1.1)
       actionpack (>= 5.2)
       railties (>= 5.2)
@@ -231,6 +236,7 @@ DEPENDENCIES
   devise
   devise-jwt
   error_highlight (>= 0.4.0)
+  paper_trail
   pg (~> 1.1)
   puma (>= 5.0)
   rack-cors
