@@ -22,7 +22,7 @@ class RoomTypesController < ApplicationController
     if @room_type.save
       render json: @room_type, status: :created, location: @room_type
     else
-      render json: @room_type.errors, status: :unprocessable_entity
+      error_response @room_type.errors
     end
   end
 
@@ -31,7 +31,7 @@ class RoomTypesController < ApplicationController
     if @room_type.update(room_type_params)
       render json: @room_type
     else
-      render json: @room_type.errors, status: :unprocessable_entity
+      error_response @room_type.errors
     end
   end
 
