@@ -1,24 +1,26 @@
-# README
+# Rails Hotel Reservation System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+### Requirements
+- Ruby 3.1,2
+- Rails 7.1.2
 
-* System dependencies
+### Install
 
-* Configuration
+```
+git clone https://github.com/OmarSoliman15/hotel-system.git
+cd hotel-system
 
-* Database creation
+bundle install
+rails db:create
+rails db:migrate
+rails db:seed
 
-* Database initialization
+rails s
+```
 
-* How to run the test suite
+You can find the insomnia's api docs from here:
+[hotel-system.json](hotel-system.json)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
