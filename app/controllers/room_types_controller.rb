@@ -5,7 +5,7 @@ class RoomTypesController < ApplicationController
 
   # GET /room_types
   def index
-    @room_types = RoomType.all
+    @room_types = RoomType.paginate(page: params[:page], per_page: 15)
 
     render json: @room_types
   end

@@ -10,9 +10,9 @@ class ReservationListBuilder
 
   def ranged_list
     if @current_user.admin?
-      @reservations = Reservation.all
+      @reservations = Reservation.paginate(page: params[:page], per_page: 15)
     else
-      @reservations = @current_user.reservations
+      @reservations = @current_user.reservations.paginate(page: params[:page], per_page: 15)
     end
 
     if params[:start_date]
